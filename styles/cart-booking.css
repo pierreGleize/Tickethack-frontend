@@ -1,0 +1,22 @@
+#container-cart{
+    height: 100vh;
+    background-color: #EFF2F1;
+}
+
+#cart-container{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart-bookig-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    gap: 20px;
+}
