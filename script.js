@@ -41,6 +41,7 @@ search.addEventListener("click", () => {
         addBook.forEach((element) => {
           element.addEventListener("click", (event) => {
             console.log(event.target.parentNode);
+            console.log('Hello');
           });
         });
       }
