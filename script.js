@@ -65,32 +65,3 @@ search.addEventListener("click", () => {
       }
     });
 });
-
-// const addBook = document.querySelectorAll(".add-book");
-// console.group(addBook);
-// addBook.forEach((element) => {
-//   element.addEventListener("click", (event) => {
-//     console.log(event.target.parentNode);
-//   });
-// });
-// document.querySelectorAll(".add-book").forEach((element) => {
-//   element.addEventListener("click", (event) => {
-//     const books = {
-//       departure:
-//         event.target.parentNode.firstElementChild.children[0].textContent,
-//       arrival:
-//         event.target.parentNode.firstElementChild.children[2].textContent,
-//       price: event.target.parentNode.children[2].children[0].textContent,
-//     };
-//     console.log(books);
-//     fetch(`http://localhost:3000/carts`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(books),
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-//       });
-//   });
-// });
