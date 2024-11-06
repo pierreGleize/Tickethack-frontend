@@ -118,13 +118,16 @@
 .travel{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #F5EEEE;
     font-size: 12px;
     width: 100%;
     padding: 5px;
     border-radius: 5px;
     margin: 10px 0;
+}
+.travel div{
+    display: flex;
 }
 .travel button {
     width: 50px;
