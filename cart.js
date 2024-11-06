@@ -52,9 +52,17 @@ fetch("http://localhost:3000/carts")
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log(data);
-              console.log(price);
+              if (Number(total) <= 0) {
+                console.log("hello");
+                // document.querySelector(".cart-bookig-text").style.display =
+                //   "flex";
+                // document.getElementById("cart").style.display = "none";
+                // document.querySelector(".myCart").innerHTML = "";
+                // document.querySelector(".text-total").style.display = "none";
+              }
               travelCarts.remove();
+              total -= Number(price);
+              document.getElementById("total").textContent = total;
             });
         });
       });

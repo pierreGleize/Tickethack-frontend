@@ -27,7 +27,10 @@
 .cart-bookig-text p{
     margin: 10px 0;
 }
-
+.cart-bookig-text{
+    display: flex;
+    flex-direction: column;
+}
 #cart{
     overflow: auto;
     scrollbar-width: thin;
