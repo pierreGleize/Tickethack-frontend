@@ -38,11 +38,10 @@ fetch("http://localhost:3000/carts")
       }
       console.log(total);
       document.getElementById("total").textContent = total;
-
+      // deleteCart();
       const addCart = document.querySelectorAll(".add-cart");
       addCart.forEach((element) => {
         element.addEventListener("click", (e) => {
-          e.preventDefault();
           const cart = e.target.id;
           const travelCarts = e.target.parentNode;
           const price = e.target.dataset.info;
@@ -52,19 +51,47 @@ fetch("http://localhost:3000/carts")
           })
             .then((response) => response.json())
             .then((data) => {
-              if (Number(total) <= 0) {
-                console.log("hello");
-                // document.querySelector(".cart-bookig-text").style.display =
-                //   "flex";
-                // document.getElementById("cart").style.display = "none";
-                // document.querySelector(".myCart").innerHTML = "";
-                // document.querySelector(".text-total").style.display = "none";
-              }
               travelCarts.remove();
               total -= Number(price);
               document.getElementById("total").textContent = total;
+              if (Number(total) <= 0) {
+                console.log("hello");
+                document.querySelector(".cart-bookig-text").style.display =
+                  "flex";
+                document.getElementById("cart").style.display = "none";
+                document.querySelector(".myCart").innerHTML = "";
+                document.querySelector(".text-total").style.display = "none";
+              }
             });
         });
       });
+      //
     }
   });
+function deleteCart() {
+  const addCart = document.querySelectorAll(".add-cart");
+  addCart.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      const cart = e.target.id;
+      const travelCarts = e.target.parentNode;
+      const price = e.target.dataset.info;
+      console.log(cart);
+      fetch(`http://localhost:3000/carts/${cart}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          travelCarts.remove();
+          total -= Number(price);
+          document.getElementById("total").textContent = total;
+          if (Number(total) <= 0) {
+            console.log("hello");
+            document.querySelector(".cart-bookig-text").style.display = "flex";
+            document.getElementById("cart").style.display = "none";
+            document.querySelector(".myCart").innerHTML = "";
+            document.querySelector(".text-total").style.display = "none";
+          }
+        });
+    });
+  });
+}

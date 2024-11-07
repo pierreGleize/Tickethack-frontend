@@ -9,7 +9,11 @@ search.addEventListener("click", () => {
     arrival: arrival,
     date: calendar,
   };
-  // console.log(typeof calendar);
+  if (trip.departure === "" || trip.arrival === "" || trip.date === "") {
+    document.getElementById("image").src = "./images/notfound.png";
+    document.getElementById("trip-text").textContent = "No trip found.";
+    return;
+  }
   fetch("http://localhost:3000/trips", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -21,8 +25,6 @@ search.addEventListener("click", () => {
       if (data.tripsFilter.length <= 0) {
         document.querySelector("#layout-right-img-text").style.display = "flex";
         document.getElementById("trips").style.display = "none";
-        document.getElementById("image").src = "./images/notfound.png";
-        document.getElementById("trip-text").textContent = "No trip found.";
       } else {
         const trips = data.tripsFilter;
         document.querySelector("#layout-right-img-text").style.display = "none";
