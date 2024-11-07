@@ -9,7 +9,7 @@ search.addEventListener("click", () => {
     arrival: arrival,
     date: calendar,
   };
-  console.log(typeof calendar);
+  // console.log(typeof calendar);
   fetch("http://localhost:3000/trips", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
