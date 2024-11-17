@@ -14,7 +14,7 @@ search.addEventListener("click", () => {
     document.getElementById("trip-text").textContent = "No trip found.";
     return;
   }
-  fetch("http://localhost:3000/trips", {
+  fetch("https://tickethack-backend-psi.vercel.app/trips", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(trip),
@@ -53,7 +53,7 @@ search.addEventListener("click", () => {
         addBook.forEach((element) => {
           element.addEventListener("click", (event) => {
             const id = event.target.id;
-            fetch(`http://localhost:3000/carts`, {
+            fetch(`https://tickethack-backend-psi.vercel.app/carts`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ id }),

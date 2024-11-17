@@ -1,6 +1,6 @@
 let total = 0;
 
-fetch("http://localhost:3000/carts")
+fetch("https://tickethack-backend-psi.vercel.app/carts")
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
@@ -52,7 +52,7 @@ function deleteCart() {
       const travelCarts = e.target.parentNode;
       const price = e.target.dataset.info;
       console.log(cart);
-      fetch(`http://localhost:3000/carts/${cart}`, {
+      fetch(`https://tickethack-backend-psi.vercel.app/carts/${cart}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
