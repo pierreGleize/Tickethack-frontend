@@ -9,10 +9,13 @@ fetch("http://localhost:3000/carts")
       document.getElementById("cart").style.display = "none";
       document.querySelector(".myCart").innerHTML = "";
       document.querySelector(".text-total").style.display = "none";
+      document.getElementById("cart-container").style.justifyContent = "center";
     } else {
       const cart = document.getElementById("cart");
       document.querySelector(".cart-bookig-text").style.display = "none";
       document.getElementById("cart").style.display = "flex";
+      document.getElementById("cart-container").style.justifyContent =
+        "space-between";
       document.querySelector(".myCart").innerHTML = "My cart";
       document.querySelector(".text-total").style.display = "flex";
       for (let i = 0; i < data.length; i++) {
@@ -38,34 +41,7 @@ fetch("http://localhost:3000/carts")
       }
       console.log(total);
       document.getElementById("total").textContent = total;
-      // deleteCart();
-      const addCart = document.querySelectorAll(".add-cart");
-      addCart.forEach((element) => {
-        element.addEventListener("click", (e) => {
-          const cart = e.target.id;
-          const travelCarts = e.target.parentNode;
-          const price = e.target.dataset.info;
-          console.log(cart);
-          fetch(`http://localhost:3000/carts/${cart}`, {
-            method: "DELETE",
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              travelCarts.remove();
-              total -= Number(price);
-              document.getElementById("total").textContent = total;
-              if (Number(total) <= 0) {
-                console.log("hello");
-                document.querySelector(".cart-bookig-text").style.display =
-                  "flex";
-                document.getElementById("cart").style.display = "none";
-                document.querySelector(".myCart").innerHTML = "";
-                document.querySelector(".text-total").style.display = "none";
-              }
-            });
-        });
-      });
-      //
+      deleteCart();
     }
   });
 function deleteCart() {
@@ -90,6 +66,8 @@ function deleteCart() {
             document.getElementById("cart").style.display = "none";
             document.querySelector(".myCart").innerHTML = "";
             document.querySelector(".text-total").style.display = "none";
+            document.getElementById("cart-container").style.justifyContent =
+              "center";
           }
         });
     });
